@@ -1,12 +1,12 @@
 import MultiStateItem from "../../../../items/MultiStateItem";
-import BugBottleItem from "./BugBottle";
-import EmptyBottleItem from "./EmptyBottle";
+import BugBottleItem, {  defaultBugBottle } from "./BugBottle";
+import EmptyBottleItem, { defaultEmptyBottle } from "./EmptyBottle";
 
 
 const MultiBottleItem = () => {
 
-    let bottles = [EmptyBottleItem,
-        BugBottleItem
+    let bottles = [defaultEmptyBottle,
+        defaultBugBottle
     ]
     return <MultiStateItem
         items={bottles}
