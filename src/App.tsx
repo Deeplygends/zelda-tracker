@@ -4,7 +4,6 @@ import AppCore from './core/app/AppCore';
 function App() {
   return (
     <AppCore />
-
   );
 }
 

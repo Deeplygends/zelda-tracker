@@ -9,17 +9,42 @@ const ItemsTracker = (props: ItemsTrackerProps) => {
 
     let items = OoTClassicItemList;
 
-    return <Grid container item xs={6} lg={3}>
+    let itemCount = 6;
+    let startIndex = 0;
+
+    let index: Array<number> = [];
+
+    while (startIndex < items.length) {
+        index.push(startIndex);
+        startIndex += itemCount;
+    }
+
+    return <Grid container item xs={12} sm={3} lg={2} onContextMenu={(e) => e.preventDefault()}>
         <Table>
             <TableBody>
-                <TableRow>
-                    {items.map((item) => {
-                        return <TableCell width={20}>{item()}</TableCell>;
-                    })}
-                </TableRow>
+                {index.map((i) => {
+                    return <ItemTrackerRow items={items.slice(i, i + itemCount)} />
+                })}
             </TableBody>
         </Table >
     </Grid>
 }
 
+export interface ItemTrackerRowProps {
+    items: Array<any>
+}
+const ItemTrackerRow = (props: ItemTrackerRowProps) => {
+
+    let { items } = props;
+
+    return <TableRow>
+        {items.map((item) => {
+            return <TableCell width={20}>{item()}</TableCell>;
+        })}
+    </TableRow>
+}
+
+
 export default ItemsTracker
+
+

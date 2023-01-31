@@ -3,8 +3,9 @@ import ItemsTracker from "../ootr/standard/ItemsTracker"
 
 const Main = () => {
 
-    return <Grid>
+    return <Grid container>
         <ItemsTracker />
+
     </Grid>
 }
 
